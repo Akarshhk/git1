@@ -1,0 +1,98 @@
+Exp 5
+
+
+Akarshhk@AKARSH MINGW64 ~/git1 (git2)
+$ git stash
+Saved working directory and index state WIP on git2: 25df282 initial commit
+
+Akarshhk@AKARSH MINGW64 ~/git1 (git2)
+$ git stash push -m "hold on "
+No local changes to save
+
+Akarshhk@AKARSH MINGW64 ~/git1 (git2)
+$ git switch master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ nano master
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git stash apply
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   FETCH_HEAD
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        master
+
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git stash list
+stash@{0}: WIP on git2: 25df282 initial commit
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git stash drop stash@{1}
+fatal: log for 'stash' only has 1 entries
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git stash drop stash@{0}
+Dropped stash@{0} (05177cd41bcea7f12a9dc37409b7619fdba63ec6)
+
+
+
+
+
+
+
+
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git checkout -b login
+Switched to a new branch 'login'
+
+Akarshhk@AKARSH MINGW64 ~/git1 (login)
+$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+Akarshhk@AKARSH MINGW64 ~/git1 (login)
+$ git add .
+warning: in the working copy of 'master', LF will be replaced by CRLF the next time Git touches it
+
+Akarshhk@AKARSH MINGW64 ~/git1 (login)
+$ git commit -m "add login form"
+[login cc4d6a5] add login form
+ 2 files changed, 2 insertions(+)
+ create mode 100644 FETCH_HEAD
+ create mode 100644 master
+
+Akarshhk@AKARSH MINGW64 ~/git1 (login)
+$ git push origin login
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 32 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 381 bytes | 381.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'login' on GitHub by visiting:
+remote:      https://github.com/Akarshhk/git1/pull/new/login
+remote:
+To https://github.com/Akarshhk/git1.git
+ * [new branch]      login -> login
+
+Akarshhk@AKARSH MINGW64 ~/git1 (login)
+$ git merge login
+Already up to date.
+
+Akarshhk@AKARSH MINGW64 ~/git1 (login)
+$ git push origin master
+Everything up-to-date
+
