@@ -1,0 +1,33 @@
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git log --oneline -n 5
+25df282 (HEAD -> master, origin/master, origin/git2, git2) initial commit
+8f791c2 committed
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git log -n 5 --pretty=format:"%h - %an, %ar : %s"
+25df282 - akarsh, 3 hours ago : initial commit
+8f791c2 - akarsh, 4 hours ago : committed
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git cherry-pick <start-commit-hash>^..<end-commit-hash>
+bash: syntax error near unexpected token `newline'
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git cherry-pick 25df282^..8f791c2
+error: empty commit set passed
+fatal: cherry-pick failed
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git log --author="akarsh" --since="2023-01-01" --until="2023-12-31" -
+pretty=format:"%h - %ad - %s" --date=short
+fatal: unrecognized argument: -
+bash: --date=short: command not found
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git log --author="akarsh" --since="2023-01-01" --until="2023-12-31" --pretty=format:"%h - %ad - %s" --date=short
+
+Akarshhk@AKARSH MINGW64 ~/git1 (master)
+$ git log --author="akarsh" --since="2023-01-01" --until="2025-05-30" --pretty=format:"%h - %ad - %s" --date=short
+25df282 - 2025-05-28 - initial commit
+8f791c2 - 2025-05-28 - committed
+
